@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import com.khadri.dao.TicketDAO;
+import com.khadri.model.Ticket;
 
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
@@ -38,6 +39,15 @@ public class TicketServlet extends HttpServlet {
             }
 
             double total = price + donation;
+            Ticket ticket = new Ticket();
+            ticket.setName(name);
+            ticket.setAge(age);
+            ticket.setFrom(from);
+            ticket.setTo(to);
+            ticket.setPrice(price);
+            ticket.setDonation(donation);
+            ticket.setAadhaar(aadhaar);
+            ticket.setTotalAmount(total);
 
             ServletContext ctx = getServletContext();
             String url = ctx.getInitParameter("url");
