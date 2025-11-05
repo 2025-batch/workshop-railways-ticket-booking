@@ -8,28 +8,47 @@
     <h2>Ticket Booking Form</h2>
 
     <form action="ticketServlet" method="post">
-        <label>Name:</label>
-        <input type="text" name="name" required><br><br>
-
-        <label>Age:</label>
-        <input type="number" name="age" required><br><br>
-
-        <label>From:</label>
-        <input type="text" name="from" required><br><br>
-
-        <label>To:</label>
-        <input type="text" name="to" required><br><br>
-
-        <label>Price:</label>
-        <input type="number" name="price" required><br><br>
-
-        <label>Donation (Optional):</label>
-        <input type="number" name="donation"><br><br>
-
-        <label>Aadhaar Number:</label>
-        <input type="text" name="aadhaar" maxlength="12" required><br><br>
-
-        <input type="submit" value="Book Ticket">
+    <table border="2">
+    <tr>
+        <td><label>Name:</label></td>
+       <td> <input type="text" name="name" required></td>
+       </tr>
+       
+       <tr>
+        <td><label>Age:</label></td>
+        <td><input type="number" name="age" required></td>
+        </tr>
+        
+        <tr>
+        <td><label>From:</label></td>
+        <td><input type="text" name="from" required></td>
+        </tr>
+        
+        <tr>
+        <td><label>To:</label></td>
+        <td><input type="text" name="to" required></td>
+        </tr>
+        
+        <tr>
+        <td><label>Price:</label></td>
+        <td><input type="number" name="price" required></td>
+        </tr>
+        
+        <tr>
+        <td><label>Donation (Optional):</label></td>
+        <td><input type="number" name="donation"></td>
+        </tr>
+        
+        <tr>
+        <td><label>Aadhaar Number:</label></td>
+       <td><input type="text" name="aadhaar" maxlength="12" required></td>
+       </tr>
+       
+       <tr>
+        <td><input type="submit" value="Book Ticket"></td>
+        </tr>
+        </table>
     </form>
+    
 </body>
 </html>

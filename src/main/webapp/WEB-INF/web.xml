@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xmlns="https://jakarta.ee/xml/ns/jakartaee"
-         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee 
          https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
          version="6.0">
 
-    <display-name>workshop-railways-ticket-booking</display-name>
+    <display-name>Ticket Booking App</display-name>
+
+    <context-param>
+        <param-name>driver</param-name>
+        <param-value>org.postgresql.Driver</param-value>
+    </context-param>
 
     <context-param>
         <param-name>url</param-name>
@@ -24,7 +29,7 @@
 
     <servlet>
         <servlet-name>ticketServlet</servlet-name>
-        <servlet-class>com.khadri.servlet.TicketServlet</servlet-class>
+        <servlet-class>com.khadri.mvc.ticketbooking.controller.TicketServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
