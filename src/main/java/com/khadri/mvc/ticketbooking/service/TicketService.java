@@ -1,4 +1,4 @@
-package com.khadri.mvc.ticketbooking.railway.service;
+package com.khadri.mvc.ticketbooking.service;
 
 import com.khadri.mvc.ticketbooking.controller.form.TicketForm;
 import com.khadri.mvc.ticketbooking.dao.TicketDao;

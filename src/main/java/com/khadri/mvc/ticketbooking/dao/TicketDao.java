@@ -25,7 +25,6 @@ public class TicketDao {
             ps.setString(7, dto.getAadhaar());
 
             count = ps.executeUpdate();
-            System.out.println(" SQL executed: " + ps);
             System.out.println(" Rows affected: " + count);
         } catch (Exception e) {
             e.printStackTrace();

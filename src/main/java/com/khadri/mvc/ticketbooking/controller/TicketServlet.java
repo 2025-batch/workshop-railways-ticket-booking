@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 import com.khadri.mvc.ticketbooking.connection.DBConnection;
 import com.khadri.mvc.ticketbooking.controller.form.TicketForm;
 import com.khadri.mvc.ticketbooking.controller.mapper.TicketFormMapper;
-import com.khadri.mvc.ticketbooking.railway.service.TicketService;
+import com.khadri.mvc.ticketbooking.service.TicketService;
 
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
@@ -38,26 +38,38 @@ public class TicketServlet extends HttpServlet {
             throws ServletException, IOException {
 
         System.out.println("TicketServlet service(-.-)");
-
-        resp.setContentType("text/html");
+        
         PrintWriter pw = resp.getWriter();
 
-        String name = req.getParameter("name");
-        String from = req.getParameter("from");
-        String to = req.getParameter("to");
-        int age = Integer.parseInt(req.getParameter("age"));
-        double price = Double.parseDouble(req.getParameter("price"));
-        double donation = Double.parseDouble(req.getParameter("donation"));
-        String aadhaar = req.getParameter("aadhaar");
+        try {
+            String name = req.getParameter("name");
+            String from = req.getParameter("from");
+            String to = req.getParameter("to");
+            int age = Integer.parseInt(req.getParameter("age"));
+            double price = Double.parseDouble(req.getParameter("price"));
 
-        TicketForm form = mapper.map(name, from, to, age, price, donation, aadhaar);
+            // Handle optional donation safely
+            String donationStr = req.getParameter("donation");
+            double donation = 0.0;
+            if (donationStr != null && !donationStr.trim().isEmpty()) {
+                donation = Double.parseDouble(donationStr);
+            }
 
-        int result = service.invokeTicketBooking(form);
+            String aadhaar = req.getParameter("aadhaar");
 
-        if (result > 0) {
-            pw.println("<h2>Ticket Booked Successfully!</h2>");
-        } else {
-            pw.println("<h2>Booking Failed. Try Again!</h2>");
+            TicketForm form = mapper.map(name, from, to, age, price, donation, aadhaar);
+
+            int result = service.invokeTicketBooking(form);
+
+            if (result > 0) {
+                pw.println("<h2>Ticket Booked Successfully!</h2>");
+            } else {
+                pw.println("<h2>Booking Failed. Try Again!</h2>");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            pw.println("<h2>Error processing your request. Please check inputs.</h2>");
         }
     }
 }

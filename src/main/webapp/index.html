@@ -3,45 +3,84 @@
 <head>
 <meta charset="UTF-8">
 <title>Ticket Booking</title>
+
+<script type="text/javascript">
+ function validate(){
+	var name1=document.getElementById("name").value;
+	var age1=document.getElementById("age").value;
+	var from1=document.getElementById("from").value;
+	var to1=document.getElementById("to").value;
+	var price1=document.getElementById("price").value;
+	var aadhaar1=document.getElementById("aadhaar").value;
+	
+	if(name1==''){
+		alert("Enter the name:");
+		return false;
+	}
+	if(age1==''){
+		alert("Enter the age:");
+		return false;
+	}
+	if(from1==''){
+		alert("Enter the from:");
+		return false;
+	}
+	if(to1==''){
+		alert("Enter the to:");
+		return false;
+	}
+	if(price==''){
+		alert("Enter the price:");
+		return false;
+	}
+	
+	if(aadhaar1==''){
+		alert("Aadhaar number must be exactly 12 digits");
+		return false;
+	}
+	return true;
+	
+}
+</script>
 </head>
 <body>
     <h2>Ticket Booking Form</h2>
 
-    <form action="ticketServlet" method="post">
+    <form action="ticketServlet" method="post" onSubmit="return validate();">
     <table border="2">
     <tr>
         <td><label>Name:</label></td>
-       <td> <input type="text" name="name" required></td>
+       <td> <input type="text" id="name" name="name" required></td>
        </tr>
        
        <tr>
         <td><label>Age:</label></td>
-        <td><input type="number" name="age" required></td>
+        <td><input type="number" name="age" id="age" required></td>
         </tr>
         
         <tr>
         <td><label>From:</label></td>
-        <td><input type="text" name="from" required></td>
+        <td><input type="text" name="from" id="from" required></td>
         </tr>
         
         <tr>
         <td><label>To:</label></td>
-        <td><input type="text" name="to" required></td>
+        <td><input type="text" name="to" id="to" required></td>
         </tr>
         
         <tr>
         <td><label>Price:</label></td>
-        <td><input type="number" name="price" required></td>
+        <td><input type="number" name="price" id="price" required></td>
         </tr>
         
         <tr>
         <td><label>Donation (Optional):</label></td>
-        <td><input type="number" name="donation"></td>
+        <td><input type="number" name="donation" ></td>
         </tr>
         
         <tr>
         <td><label>Aadhaar Number:</label></td>
-       <td><input type="text" name="aadhaar" maxlength="12" required></td>
+       <td><input type="text" name="aadhaar" maxlength="12"id="aadhaar" required></td>
        </tr>
        
        <tr>
